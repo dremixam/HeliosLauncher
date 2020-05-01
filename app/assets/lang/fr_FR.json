@@ -1,0 +1,49 @@
+{
+    "html": {
+        "avatarOverlay": "Modifier"
+    },
+    "js": {
+        "login": {
+            "error": {
+                "invalidValue": "* Saisie invalide",
+                "requiredValue": "* Obligatoire",
+                "userMigrated": {
+                    "title": "Erreur d'identification :<br>Identifiants invalides",
+                    "desc": "Vous essayez de vous connecter à un compte migré. Réessayez en utilisant l'adresse email comme nom d'utilisateur."
+                },
+                "invalidCredentials": {
+                    "title": "Erreur d'identification :<br>Identifiants invalides",
+                    "desc": "L'email ou le mot de passe saisis sont incorrects. Merci de réessayer."
+                },
+                "rateLimit": {
+                    "title": "Erreur d'identification :<br>Trop de tentatives",
+                    "desc": "Trop de tentatives de connexion ont été réalisées avec ce compte. Merci de réessayer plus tard."
+                },
+                "noInternet": {
+                    "title": "Erreur d'identification :<br>Aucune connexion à Internet",
+                    "desc": "Vous devez disposer d'une connexion à Internet pour continuer. Merci de vérifier votre connexion et de réessayer.."
+                },
+                "authDown": {
+                    "title": "Erreur d'identification :<br>Serveurs d'authentification hors-ligne",
+                    "desc": "Les serveurs d'authentification de Mojang semblent hors-ligne. Merci de patienter un instant avant de réessayer. Vous pouvez vérifier l'état des serveurs sur <a href=\"https://help.mojang.com/\">le portail d'aide de Mojang</a>."
+                },
+                "notPaid": {
+                    "title": "Erreur d'identification :<br>Jeu non possédé",
+                    "desc": "Le compte que vous utilisez ne possède pas de copie du jeu Minecraft. Vous pouvez acheter le jeu en vous rendant sur <a href=\"https://minecraft.net/\">Minecraft.net</a>"
+                },
+                "unknown": {
+                    "title": "Erreur d'identification :<br>Erreur d'origine inconnue"
+                }
+            },
+            "login": "SE CONNECTER",
+            "loggingIn": "CONNEXION",
+            "success": "SUCCES",
+            "tryAgain": "Réessayer"
+        },
+        "landing": {
+            "launch": {
+                "pleaseWait": "Patientez…"
+            }
+        }
+    }
+}

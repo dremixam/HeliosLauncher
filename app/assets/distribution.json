@@ -80,7 +80,7 @@
                             }
                         },
                         {
-                            "id": "net.minecraftforge:forge:1.14.4-28.1.118:manifest",
+                            "id": "1.14.4-forge-28.1.118",
                             "name": "VersionManifest",
                             "type": "VersionManifest",
                             "artifact": {
@@ -355,7 +355,7 @@
                     "artifact": {
                         "size": 2662,
                         "path": "options.txt",
-                        "MD5": "a97d61a4324e5ec9e13164f3e188b03d",
+                        "MD5": "9a8a6f005e56a5c5318988d1b40f62ea",
                         "url": "https://mc.lou.lt/mods/options.txt" 
                     }
                 },
