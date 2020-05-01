@@ -1448,6 +1448,7 @@ class AssetGuard extends EventEmitter {
                 if(type === DistroManager.Types.ForgeHosted || type === DistroManager.Types.Forge){
                     if(Util.mcVersionAtLeast('1.13', server.getMinecraftVersion())){
                         // Read Manifest
+                        console.log(ob);
                         for(let sub of ob.getSubModules()){
                             if(sub.getType() === DistroManager.Types.VersionManifest){
                                 resolve(JSON.parse(fs.readFileSync(sub.getArtifact().getPath(), 'utf-8')))
@@ -1685,18 +1686,33 @@ class AssetGuard extends EventEmitter {
 
                 req.on('response', (resp) => {
 
+
                     if(resp.statusCode === 200){
 
                         let doHashCheck = false
-                        const contentLength = parseInt(resp.headers['content-length'])
 
-                        if(contentLength !== asset.size){
-                            console.log(`WARN: Got ${contentLength} bytes for ${asset.id}: Expected ${asset.size}`)
+
+                        if (resp.headers['content-length'] != null ) {
+                            
+                            const contentLength = parseInt(resp.headers['content-length'])
+
+                            
+
+                            if(contentLength !== asset.size){
+                                console.log(`WARN: Got ${contentLength} bytes for ${asset.id}: Expected ${asset.size}`)
+
+
+                                //console.log(resp.headers);
+
+                                doHashCheck = true
+
+                                // Adjust download
+                                this.totaldlsize -= asset.size
+                                this.totaldlsize += contentLength
+                            }
+
+                        } else {
                             doHashCheck = true
-
-                            // Adjust download
-                            this.totaldlsize -= asset.size
-                            this.totaldlsize += contentLength
                         }
 
                         let writeStream = fs.createWriteStream(asset.to)
@@ -1711,6 +1727,8 @@ class AssetGuard extends EventEmitter {
                                     console.log(`Hashes match for ${asset.id}, byte mismatch is an issue in the distro index.`)
                                 } else {
                                     console.error(`Hashes do not match, ${asset.id} may be corrupted.`)
+
+                                    //console.log(asset);
                                 }
                             }
 

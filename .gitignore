@@ -4,3 +4,6 @@
 /target/
 /logs/
 /dist/
+.DS_Store
+._*
+*.bak

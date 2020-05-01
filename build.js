@@ -21,7 +21,7 @@ builder.build({
         appId: 'helioslauncher',
         productName: 'Helios Launcher',
         artifactName: '${productName}.${ext}',
-        copyright: 'Copyright © 2018-2020 Daniel Scalzi',
+        copyright: 'Copyright © 2003-2020 DrEmixam',
         directories: {
             buildResources: 'build',
             output: 'dist'
@@ -46,8 +46,8 @@ builder.build({
         },
         linux: {
             target: 'AppImage',
-            maintainer: 'Daniel Scalzi',
-            vendor: 'Daniel Scalzi',
+            maintainer: 'DrEmixam',
+            vendor: 'DrEmixam',
             synopsis: 'Modded Minecraft Launcher',
             description: 'Custom launcher which allows users to join modded servers. All mods, configurations, and updates are handled automatically.',
             category: 'Game'

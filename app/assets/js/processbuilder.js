@@ -57,7 +57,8 @@ class ProcessBuilder {
             args = args.concat(this.constructModArguments(modObj.fMods))
         }
 
-        logger.log('Launch Arguments:', args)
+        logger.log('Launch Arguments:', args);
+        
 
         const child = child_process.spawn(ConfigManager.getJavaExecutable(), args, {
             cwd: this.gameDir,
@@ -353,6 +354,17 @@ class ProcessBuilder {
         // Main Java Class
         args.push(this.forgeData.mainClass)
 
+        // Autoconnect to the selected server.
+        if(ConfigManager.getAutoConnect() && this.server.isAutoConnect()){
+            const serverURL = new URL('my://' + this.server.getAddress())
+            args.push('--server')
+            args.push(serverURL.hostname)
+            if(serverURL.port){
+                args.push('--port')
+                args.push(serverURL.port)
+            }
+        }
+
         // Vanilla Arguments
         args = args.concat(this.versionData.arguments.game)
 
@@ -524,6 +536,9 @@ class ProcessBuilder {
                 }
             }
         }
+
+        
+        console.log("AUTOCONNECT DEBUG "+ConfigManager.getAutoConnect() + "&&"+ this.server.isAutoConnect());
 
         // Autoconnect to the selected server.
         if(ConfigManager.getAutoConnect() && this.server.isAutoConnect()){
