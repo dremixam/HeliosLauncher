@@ -537,7 +537,7 @@ exports.pullRemote = function(){
         return exports.pullLocal()
     }
     return new Promise((resolve, reject) => {
-        const distroURL = 'https://mc.lou.lt/launcherUpdates/distribution.json'
+        const distroURL = 'https://mc.lou.lt/Launcher/distribution.json'
         const opts = {
             url: distroURL,
             timeout: 2500

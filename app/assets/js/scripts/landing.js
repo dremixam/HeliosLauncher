@@ -642,6 +642,8 @@ function dlAsync(login = true){
             versionData = m.result.versionData
 
             if(login && allGood) {
+
+
                 const authUser = ConfigManager.getSelectedAccount()
                 loggerLaunchSuite.log(`Sending selected account (${authUser.displayName}) to ProcessBuilder.`)
                 let pb = new ProcessBuilder(serv, versionData, forgeData, authUser, remote.app.getVersion())
